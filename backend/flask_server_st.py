@@ -6,7 +6,7 @@ DEFAULT_PATH = os.path.join(os.path.dirname(__file__), 'test.db')
 
 app = Flask(__name__)
 
-@app.route('/')
+@app.route('/getprojects')
 def get_projects():
     con = db_connect(db_path=DEFAULT_PATH)
     cur = con.cursor()
