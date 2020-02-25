@@ -3,23 +3,15 @@ import { DataService } from '../data.service';
 import { Subscription } from 'rxjs';
 import { MatTable, MatColumnDef, MatHeaderCell, MatHeaderCellDef, MatCell, MatCellDef } from '@angular/material/table';
 
-export interface ProjectElement {
-  id: number;
-  title: string;
-  status: string;
-  word_count: number;
-  notes: string;
-}
-
 @Component({
   selector: 'app-project-table',
   templateUrl: './project-table.component.html',
   styleUrls: ['./project-table.component.scss']
 })
 export class ProjectTableComponent implements OnInit, OnDestroy {
-  private projects: any;
+  private projects;
   private subscription: Subscription;
-  private displayedColumns: string[] = ['title', 'status', 'wordcount'];
+  private displayedColumns: string[] = ['title', 'status', 'wordcount', 'modify'];
 
   constructor(private dataService: DataService) { }
 

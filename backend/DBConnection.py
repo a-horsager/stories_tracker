@@ -22,7 +22,7 @@ class StoriesDB(DBConnection):
 
         for project in query_res:
             projects.append({
-                'id': project[0],
+                'proj_id': project[0],
                 'title': project[1],
                 'status': project[2],
                 'word_count': project[3],
