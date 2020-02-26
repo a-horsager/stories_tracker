@@ -1,12 +1,12 @@
 <mat-sidenav-container>
-    <mat-sidenav mode="side" opened>
+    <mat-sidenav #drawer mode="side" opened role="navigation">
         <mat-nav-list>
-            <a mat-list-item href="">Submissions</a>
-            <a mat-list-item href="">Projects</a>
-            <a mat-list-item href="">Markets</a>
+            <a mat-list-item routerLink="/submissions">Submissions</a>
+            <a mat-list-item routerLink="/projects">Projects</a>
+            <a mat-list-item routerLink="/markets">Markets</a>
         </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
-        <app-projects></app-projects>
+        <router-outlet></router-outlet>
     </mat-sidenav-content>
 </mat-sidenav-container>

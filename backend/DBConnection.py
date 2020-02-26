@@ -28,7 +28,6 @@ class StoriesDB(DBConnection):
             })
 
         cur.close()
-        
         return results
 
     def get_all_markets(self):
@@ -54,5 +53,33 @@ class StoriesDB(DBConnection):
             })
 
         cur.close()
-        
         return results
+
+    def get_active_submissions(self):
+        cur = self._con.cursor()
+        results = []
+
+        query = """
+            SELECT p.title, m.name, s.sub_date, s.resp_date, s.status, s.notes
+            FROM submissions s
+            LEFT JOIN projects p ON s.project=p.proj_id
+            LEFT JOIN markets m ON s.market=m.mkt_id
+            WHERE s.status="active";
+        """
+
+        cur.execute(query)
+        query_res = cur.fetchall()
+
+        for submission in query_res:
+            results.append({
+                'title': submission[0],
+                'market': submission[1],
+                'sub_date': submission[2],
+                'resp_date': submission[3],
+                'status': submission[4],
+                'notes': submission[5],
+            })
+        
+        cur.close()
+        return results
+

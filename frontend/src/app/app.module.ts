@@ -7,6 +7,7 @@ import { MatSidenavModule } from '@angular/material/sidenav'
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule} from "@angular/material/icon";
 import { MatButtonModule } from '@angular/material/button';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -16,6 +17,8 @@ import { HeaderComponent } from './header/header.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { ProjectTableHeaderComponent } from './projects/project-table-header/project-table-header.component';
+import { SubmissionsComponent } from './submissions/submissions.component';
+import { MarketsComponent } from './markets/markets.component';
 
 
 @NgModule({
@@ -25,7 +28,9 @@ import { ProjectTableHeaderComponent } from './projects/project-table-header/pro
     HeaderComponent,
     SidenavComponent,
     ProjectsComponent,
-    ProjectTableHeaderComponent
+    ProjectTableHeaderComponent,
+    SubmissionsComponent,
+    MarketsComponent
   ],
   imports: [
     BrowserModule,
@@ -37,6 +42,7 @@ import { ProjectTableHeaderComponent } from './projects/project-table-header/pro
     MatListModule,
     MatIconModule,
     MatButtonModule,
+    MatTooltipModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
