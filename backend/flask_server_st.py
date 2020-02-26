@@ -11,7 +11,7 @@ app = Flask(__name__)
 @cross_origin()
 def get_projects():
     db = StoriesDB(db_path=DEFAULT_DB_PATH)
-    return jsonify(db.get_full_table(table_name='projects'))
+    return jsonify(db.get_all_projects())
 
 if __name__ == '__main__':
     res = get_projects()

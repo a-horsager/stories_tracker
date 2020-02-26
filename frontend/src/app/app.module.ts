@@ -1,9 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { ProjectTableComponent } from './project-table/project-table.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from '@angular/material/table';
@@ -11,8 +7,15 @@ import { MatSidenavModule } from '@angular/material/sidenav'
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule} from "@angular/material/icon";
 import { MatButtonModule } from '@angular/material/button';
+
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { ProjectTableComponent } from './projects/project-table/project-table.component';
 import { HeaderComponent } from './header/header.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
+import { ProjectsComponent } from './projects/projects.component';
+import { ProjectTableHeaderComponent } from './projects/project-table-header/project-table-header.component';
 
 
 @NgModule({
@@ -20,7 +23,9 @@ import { SidenavComponent } from './sidenav/sidenav.component';
     AppComponent,
     ProjectTableComponent,
     HeaderComponent,
-    SidenavComponent
+    SidenavComponent,
+    ProjectsComponent,
+    ProjectTableHeaderComponent
   ],
   imports: [
     BrowserModule,
