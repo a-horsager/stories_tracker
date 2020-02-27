@@ -1,0 +1,38 @@
+<h3>Active Submissions</h3>
+<table *ngIf="active_subs.length > 0" mat-table [dataSource]="active_subs">
+    <ng-container matColumnDef="title">
+        <th mat-header-cell *matHeaderCellDef>Title</th>
+        <td mat-cell *matCellDef="let element">
+            {{ element.title }}
+            <mat-icon *ngIf="element.notes != ''" [matTooltip]="element.notes" matTooltipClass="table-cell">info</mat-icon>
+        </td>
+    </ng-container>
+
+    <ng-container matColumnDef="market">
+        <th mat-header-cell *matHeaderCellDef>Market</th>
+        <td mat-cell *matCellDef="let element">{{ element.market }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="sub_date">
+        <th mat-header-cell *matHeaderCellDef>Submission Date</th>
+        <td mat-cell *matCellDef="let element">{{ element.sub_date }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="modify">
+        <th mat-header-cell *matHeaderCellDef>Modify</th>
+        <td mat-cell *matCellDef="let row">
+            <button mat-icon-button>
+                <mat-icon>edit</mat-icon>
+            </button>
+            <!-- <button mat-icon-button>
+                <mat-icon>delete</mat-icon>
+            </button> -->
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;">/tr>
+
+</table>
+
+<p *ngIf="active_subs.length===0">No active submissions</p>

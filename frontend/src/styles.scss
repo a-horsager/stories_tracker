@@ -11,4 +11,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .mat-tooltip.table-cell {
     font-size: 14px;
     background-color: #6c757d;
-  }
+}
+
+td.mat-cell {
+    padding-right: 30px !important;
+}

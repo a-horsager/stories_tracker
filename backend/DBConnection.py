@@ -10,11 +10,12 @@ class DBConnection(object):
             print('Unable to connect to the database.')
 
 class StoriesDB(DBConnection):
-    def get_all_projects(self):
+    def get_projects(self):
         cur = self._con.cursor()
         results = []
 
         query = 'SELECT * FROM projects;'
+        
         cur.execute(query)
         query_res = cur.fetchall()
 
@@ -30,7 +31,7 @@ class StoriesDB(DBConnection):
         cur.close()
         return results
 
-    def get_all_markets(self):
+    def get_markets(self):
         cur = self._con.cursor()
         results = []
 
@@ -55,16 +56,15 @@ class StoriesDB(DBConnection):
         cur.close()
         return results
 
-    def get_active_submissions(self):
+    def get_submissions(self):
         cur = self._con.cursor()
         results = []
 
         query = """
-            SELECT p.title, m.name, s.sub_date, s.resp_date, s.status, s.notes
+            SELECT p.title, m.name, s.project, s.market, s.sub_date, s.resp_date, s.status, s.notes
             FROM submissions s
             LEFT JOIN projects p ON s.project=p.proj_id
-            LEFT JOIN markets m ON s.market=m.mkt_id
-            WHERE s.status="active";
+            LEFT JOIN markets m ON s.market=m.mkt_id;
         """
 
         cur.execute(query)
@@ -74,10 +74,12 @@ class StoriesDB(DBConnection):
             results.append({
                 'title': submission[0],
                 'market': submission[1],
-                'sub_date': submission[2],
-                'resp_date': submission[3],
-                'status': submission[4],
-                'notes': submission[5],
+                'proj_id': submission[2],
+                'mkt_id': submission[3],
+                'sub_date': submission[4],
+                'resp_date': submission[5],
+                'status': submission[6],
+                'notes': submission[7],
             })
         
         cur.close()

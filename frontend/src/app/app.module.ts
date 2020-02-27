@@ -8,6 +8,9 @@ import { MatListModule } from '@angular/material/list';
 import { MatIconModule} from "@angular/material/icon";
 import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCardModule } from '@angular/material/card';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -19,6 +22,10 @@ import { ProjectsComponent } from './projects/projects.component';
 import { ProjectTableHeaderComponent } from './projects/project-table-header/project-table-header.component';
 import { SubmissionsComponent } from './submissions/submissions.component';
 import { MarketsComponent } from './markets/markets.component';
+import { SubHeaderComponent } from './submissions/sub-header/sub-header.component';
+import { SubTableComponent } from './submissions/sub-table/sub-table.component';
+import { OpenProjectTableComponent } from './submissions/open-project-table/open-project-table.component';
+import { ProjectSubsComponent } from './submissions/project-subs/project-subs.component';
 
 
 @NgModule({
@@ -30,7 +37,11 @@ import { MarketsComponent } from './markets/markets.component';
     ProjectsComponent,
     ProjectTableHeaderComponent,
     SubmissionsComponent,
-    MarketsComponent
+    MarketsComponent,
+    SubHeaderComponent,
+    SubTableComponent,
+    OpenProjectTableComponent,
+    ProjectSubsComponent
   ],
   imports: [
     BrowserModule,
@@ -43,6 +54,9 @@ import { MarketsComponent } from './markets/markets.component';
     MatIconModule,
     MatButtonModule,
     MatTooltipModule,
+    MatGridListModule,
+    MatCardModule,
+    FlexLayoutModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

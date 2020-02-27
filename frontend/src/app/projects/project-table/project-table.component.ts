@@ -11,12 +11,11 @@ import { MatTable, MatColumnDef, MatHeaderCell, MatHeaderCellDef, MatCell, MatCe
 export class ProjectTableComponent implements OnInit, OnDestroy {
   private projects;
   private subscription: Subscription;
-  private displayedColumns: string[] = ['title', 'status', 'wordcount', 'modify'];
+  public displayedColumns: string[] = ['title', 'status', 'wordcount', 'modify'];
 
-  constructor(private dataService: DataService) { }
+  constructor(public dataService: DataService) { }
 
   ngOnInit() {
-    console.log('Init function run.');
     this.dataService.getProjects();
 
     this.subscription = this.dataService.projects$.subscribe(res => {
